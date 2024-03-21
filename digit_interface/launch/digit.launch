@@ -1,0 +1,11 @@
+<launch>
+    <!-- define sensor id parameter -->
+    <param name="sensor_id1" type="str" value="D00045" />
+    <param name="sensor_id2" type="str" value="D00055" />  
+    <node pkg="digit_interface" type="digit.py" name="digit55" output="screen" >
+    
+    </node>
+
+   
+
+</launch>
