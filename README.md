@@ -11,3 +11,4 @@ The papilarray folder contains two scripts to run online and offline interfaces 
 # Tactile segmentation and object angle measurement with DIGIT sensors
 
 # Force estimation using DIGIT and PapilArray sensors
+This package contains the code that we implemented for our work on force regression for tactile images.
