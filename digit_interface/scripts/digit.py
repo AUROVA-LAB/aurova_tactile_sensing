@@ -1,11 +1,10 @@
-#!/home/aurova/anaconda3/envs/digit_depth/bin/python3
+#!/home/aurova/anaconda3/envs/digit_ros_torch/bin/python3
 
 # first of all, you need to source the virtualenv. Then source the devel setup.bash file.
 
 # ROS IMPORTS
 import rospy
 from sensor_msgs.msg import Image
-from cv_bridge import CvBridge
 import time
 import cv2
 
@@ -56,12 +55,7 @@ def main():
     pub45 = rospy.Publisher(f"digit45/camera/image_color", Image, queue_size=10)
     pub55 = rospy.Publisher(f"digit55/camera/image_color", Image, queue_size=10)
 
-    # cvbridge to transform the images from np to ros type
-    cvbridge = CvBridge()
-
-
     rate = rospy.Rate(60)
-    #bridge = CvBridge()
 
     # infinite loop
     while True:
