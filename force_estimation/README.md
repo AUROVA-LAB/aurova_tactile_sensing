@@ -14,15 +14,13 @@ This folder contains the code used to train and evaluate our models for the task
 ### 3. Training example
 - The 'code' folder contains all the scripts to train and evaluate our model for the task of force regression from tactile images. We provide a trained model to estimate forces from images with the DIGIT sensor, and also a small version of our dataset only to test that our code works. The full dataset will be available soon too.
 - Go to code folder inside of the docker container:
-
 `cd ../deepl_force/code/`
-
 - Train the RGBmod model, saving the weights into a folder with a scecific name:
-`python train.py --train_mode 0  --save True --training training1`
+- `python train.py --train_mode 0  --save True --training training1`
 
 ### 4. Test example
 - Test our trained model with a few images from the test_data folder:
-`python test.py --train_mode 0`
+- `python test.py --train_mode 0`
 
 # Force estimation ROS package
 This package contains one script to run the force regression model inside of ROS. This script subscribes to the DIGIT tactile sensor topic, estimates the force, and publish it in another topic. The instructions are described in the applications repository.
