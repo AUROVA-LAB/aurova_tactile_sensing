@@ -6,14 +6,23 @@ This folder contains the code used to train and evaluate our models for the task
 
 ### 2. Set up the conda environment:
 `cd aurova_tactile_sensing/force_estimation/`
+
 `conda create --name==digit_ros_torch python=3.8.10`
+
 `conda activate digit_ros_torch`
+
 `pip install rospkg empy`
+
 `pip install numpy`
+
 `pip install opencv-python`
+
 `pip install digit-interface`
+
 `conda install pytorch==1.12.0 torchvision==0.13.0 torchaudio==0.12.0 cudatoolkit=11.3 -c pytorch`
+
 `pip install tqdm`
+
 `pip install wandb`
 
 ### 3. Training example
