@@ -6,7 +6,9 @@ This folder contains the code used to train and evaluate our models for the task
 
 ### 2. Build and run the docker image:
 `cd aurova_tactile_sensing/force_estimation/`
+
 `docker build -t force_estimation Dockerfile`
+
 `docker run --net=host --gpus "device=0" --rm -it --name force_estimation -v ./:/deepl_force force_estimation`
 
 ### 3. Training example
