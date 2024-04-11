@@ -36,5 +36,5 @@ This folder contains the code used to train and evaluate our models for the task
 - `python test.py --train_mode 0`
 
 # Force estimation ROS package
-This package contains one script to run the force regression model inside of ROS. This script subscribes to the DIGIT tactile sensor topic, estimates the force, and publish it in another topic. The instructions are described in the applications repository (link soon).
+This package contains one script to run the force regression model inside of ROS. This script subscribes to the DIGIT tactile sensor topic, estimates the force, and publish it in another topic. The instructions are described in the applications repository [applications](https://github.com/AUROVA-LAB/applications/tree/main/app_force_estimation).
 
