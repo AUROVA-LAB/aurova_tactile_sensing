@@ -20,17 +20,14 @@ from digit_interface import DigitHandler
         - None
     Returns: object class of the sensor library.
 '''
-def setup_digit(sensor_id, idx):
+def setup_digit(sensor_id):
 
     # get sensor id from launch file
     id_d = rospy.get_param(sensor_id)
 
     # initialize digit sensor with the usb serial
-    digit_serial = DigitHandler.list_digits()[idx]['serial']
-
-    if digit_serial == id_d:
-        d = Digit(digit_serial)
-        d.connect()
+    d = Digit(id_d)
+    d.connect()
 
 
     return d, id_d
@@ -46,8 +43,8 @@ def setup_digit(sensor_id, idx):
 def main():
 
     # initialize digit sensor
-    d45, id45 = setup_digit("/sensor_id1", 0)
-    d55, id55 = setup_digit("/sensor_id2", 2)
+    d45, id45 = setup_digit("/sensor_id1")
+    d55, id55 = setup_digit("/sensor_id2")
 
     # initialize ros node
     rospy.init_node(f"digit_ros_node", anonymous=True)
@@ -74,7 +71,7 @@ def main():
         # create the ros msg for the images and fill with all the info
         
         image_msg45 = Image()
-        image_msg45.header.stamp = rospy.Time.from_sec(time.time())  # prueba rospy.Time.now()
+        image_msg45.header.stamp = rospy.Time.from_sec(time.time())
         image_msg45.header.frame_id = "digit_camera"
         image_msg45.height = (digit45_img.shape)[0]
         image_msg45.width = (digit45_img.shape)[1]
