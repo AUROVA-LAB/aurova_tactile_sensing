@@ -1,0 +1,87 @@
+_target_: vqseg_model.TrainVQVAESegWorkspace
+base_learning_rate: 4.5e-6
+
+save_weights: True
+folder_name: "training1_vqgan"
+
+shape_meta: &shape_meta
+  obs:    
+    tactile_image:
+      shape: [3, 128, 160]
+      type: rgb
+with_vq: true
+model:
+  embed_dim: 3
+  n_embed: 1024
+  ddconfig:
+    double_z: False
+    z_channels: 3
+    resolution: 128
+    in_channels: 3
+    out_ch: 3
+    ch: 128
+    ch_mult: [1,1,1,2] # representation shape 16x20
+    num_res_blocks: 2
+    attn_resolutions: [16]
+    dropout: 0.0
+  lossconfig:
+    target: losses.vqperceptual.VQLPIPSWithDiscriminator
+    params:
+      disc_conditional: False
+      disc_in_channels: 3
+      disc_start: 10000
+      disc_weight: 0.8
+      codebook_weight: 1.0
+dataset:
+  resized_image_shape: [128,160]
+  shape_meta:
+    obs:    
+      tactile_image:
+        shape: [3, 128, 160]
+        type: rgb
+
+  dataset_path: data/
+  horizon: 1
+  max_train_episodes: null
+  pad_after: 1
+  pad_before: 1
+  seed: 42
+  val_ratio: 0
+val_dataloader:
+  batch_size: 32
+  num_workers: 8
+  persistent_workers: false
+  pin_memory: true
+  shuffle: false
+dataloader:
+  batch_size: 32
+  num_workers: 8
+  persistent_workers: false
+  pin_memory: true
+  shuffle: true
+gpus: '0,'
+batch_size: 1 #32
+seed: 42
+trainer:
+  name: "vq_representiaon_dubug"
+  resume: ""
+  base: []
+  no_test: false
+  project: null
+  debug: false
+  seed: 42
+  postfix: ""
+  train: false
+save_every: 1
+max_epochs: 100000
+
+train_data: ../../data/dataset/final_data/train/
+val_data: ../../data/dataset/final_data/val/
+test_data: ../../data/dataset/final_data/test/
+
+norm_file: ./force/data/normalization_08042025_122519.npy
+force_model: ./force/weights/unet_force_diff.pt
+calibration_file: null
+enc_chs: [3, 16, 32, 64, 128, 256]
+dec_chs: [256, 128, 64, 32, 16]
+output_size: [24, 32]
