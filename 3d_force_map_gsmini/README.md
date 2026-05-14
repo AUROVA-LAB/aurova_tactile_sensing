@@ -4,3 +4,7 @@ This work is based on the following projects:
 
 - https://github.com/feats-ai/feats
 - https://github.com/ZhengtongXu/UniT
+
+
+Weights can be downloaded from the following link:
+- https://drive.google.com/drive/folders/1ne4Psy9-H-rKTsbeVl46RH5aDO3z7tBN?usp=sharing
