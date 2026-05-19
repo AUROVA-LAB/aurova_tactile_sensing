@@ -10,5 +10,5 @@ Weights can be downloaded from the following link:
 - https://drive.google.com/drive/folders/1ne4Psy9-H-rKTsbeVl46RH5aDO3z7tBN?usp=sharing
 
 
-The instruction for instalation and usage are in the following link:
+The instructions for installation and usage are in the following link:
 - https://github.com/AUROVA-LAB/applications/tree/main/app_3d_force_map
